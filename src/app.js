@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Conditional } from './components/conditional/Conditional'
+import { Header } from './components/header/Header'
 
 export default function App() {
   let horizontalPositions = ['flex-start', 'center', 'flex-end']
@@ -9,6 +10,8 @@ export default function App() {
 
   let [horizontal, setHorizontal] = useState(horizontalPositions[0])
   let [vertical, setVertical] = useState(verticalPositions[0])
+
+  let [roomTemp, setRoomTemp] = useState(72)
 
   const moveRight = () => {
     let currentPosition = horizontalPositions.indexOf(horizontal)
@@ -36,15 +39,43 @@ export default function App() {
     <div
       style={{
         paddingTop: '50px',
-        height: '100vh',
+        height: '100%',
         width: '100vw',
         ...wrapperStyles,
       }}
     >
       <div className='container'>
-        <button className='btn' onClick={() => setLit(!isLit)}>
-          Lights {isLit ? 'OFF' : ' ON'}
+        <Header />
+        <hr />
+        <button className='btn' onClick={() => setRoomTemp(++roomTemp)}>
+          ↑ Increase Room Temperature
         </button>
+        <button className='btn' onClick={() => setRoomTemp(--roomTemp)}>
+          ↓ Decrease Room Temperature
+        </button>
+        <h3 style={{ margin: '20px 0' }}>
+          Room Temperature: <strong>{roomTemp}</strong>
+        </h3>
+
+        <hr />
+
+        <button
+          className='btn'
+          onClick={() => setLit(true)}
+          disabled={isLit ? true : false}
+        >
+          ON
+        </button>
+        <button
+          className='btn'
+          onClick={() => setLit(false)}
+          disabled={!isLit ? true : false}
+        >
+          OFF
+        </button>
+
+        <hr />
+
         <h1 style={{ margin: '20px 0' }}>Use the buttons to move image</h1>
         <button className='btn' onClick={moveDown}>
           ↓

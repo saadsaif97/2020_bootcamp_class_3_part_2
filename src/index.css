@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -15,6 +19,7 @@ body {
 .container {
   max-width: 1100px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .header {
@@ -24,13 +29,25 @@ body {
 
 .btn {
   padding: 10px;
-  background-color: orangered;
-  color: azure;
   font-weight: bolder;
   border-radius: 5px;
   border: none;
 }
 
+.btn .primary {
+  background-color: orangered;
+  color: azure;
+}
+
+.btn:disabled {
+  background-color: gray;
+  color: wheat;
+}
+
 .btn:not(:last-of-type) {
   margin-right: 10px;
+}
+
+hr {
+  margin: 30px 0;
 }
