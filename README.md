@@ -1,4 +1,4 @@
-## [live app](saad-saif-class-3-part-2-bootcamp2020.surge.sh)
+## [live app](http://saad-saif-class-3-part-2-bootcamp2020.surge.sh/)
 
 ### Learning react basics
 
